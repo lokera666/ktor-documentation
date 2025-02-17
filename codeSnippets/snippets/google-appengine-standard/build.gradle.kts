@@ -7,8 +7,8 @@ val gce_logback_version: String by project
 plugins {
     application
     kotlin("jvm")
-    id("com.google.cloud.tools.appengine") version "2.4.2"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("com.google.cloud.tools.appengine") version "2.8.0"
+    id("com.gradleup.shadow") version "8.3.1"
 }
 
 application {
@@ -35,6 +35,6 @@ dependencies {
     implementation("io.ktor:ktor-server-core:$ktor_version")
     implementation("io.ktor:ktor-server-netty:$ktor_version")
     implementation("com.google.cloud:google-cloud-logging-logback:$gce_logback_version")
-    testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
+    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }

@@ -5,6 +5,7 @@ import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.logging.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
+import io.ktor.http.*
 import kotlinx.coroutines.runBlocking
 
 fun main() {
@@ -16,6 +17,7 @@ fun main() {
                 filter { request ->
                     request.url.host.contains("ktor.io")
                 }
+                sanitizeHeader { header -> header == HttpHeaders.Authorization }
             }
         }
 

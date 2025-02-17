@@ -9,6 +9,9 @@ import kotlin.test.*
 class HtmlTest {
     @Test
     fun testRoot() = testApplication {
+        application {
+            module()
+        }
         val response = client.get("/")
         assertEquals(
             """
@@ -19,6 +22,10 @@ class HtmlTest {
     <article>
       <h2>Hello from Ktor!</h2>
       <p>Kotlin Framework for creating connected systems.</p>
+      <ul>
+        <li><b>One</b></li>
+        <li>Two</li>
+      </ul>
     </article>
   </body>
 </html>

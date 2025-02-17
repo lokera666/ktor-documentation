@@ -1,7 +1,7 @@
 val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
-val tcnative_version = "2.0.54.Final"
+val tcnative_version = "2.0.65.Final"
 
 plugins {
     application
@@ -17,7 +17,7 @@ repositories {
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap") }
 }
 
-val osName = System.getProperty("os.name").toLowerCase()
+val osName = System.getProperty("os.name").lowercase()
 val tcnative_classifier = when {
     osName.contains("win") -> "windows-x86_64"
     osName.contains("linux") -> "linux-x86_64"
