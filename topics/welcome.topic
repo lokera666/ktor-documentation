@@ -1,352 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
 
-<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        title="Welcome"
        id="welcome">
+    <section-starting-page>
+        <title>Ktor Documentation</title>
+        <description>
+            Ktor is a framework for building asynchronous server-side and client-side applications with ease.
+        </description>
 
-    <img src="ktor_logo.svg" alt="Ktor logo" width="306" height="127"/>
-    <p>
-        Ktor is a framework to easily build connected applications – web applications, HTTP services, mobile and browser applications.
-        Modern connected applications need to be asynchronous to provide the best experience to users, and Kotlin coroutines provide
-        awesome facilities to do it in an easy and straightforward way.
-        The goal of Ktor is to provide an end-to-end multiplatform framework for connected applications.
-    </p>
+        <spotlight>
+            <a href="server-create-a-new-project.topic" type="server"
+               summary="Learn how to create, run and test a server application with Ktor.">
+                Get started with Ktor Server
+            </a>
+            <a href="client-create-new-application.topic" type="cross-platform"
+               summary="Learn how to create, run and test a client application with Ktor.">
+                Get started with Ktor Client
+            </a>
+        </spotlight>
 
-    <tabs>
-        <tab title="Ktor Server">
-            <list columns="2">
-                <li>
-                    <p>
-                        <b>
-                            Getting started
-                        </b>
-                    </p>
-                    <list style="none">
-                        <li>
-                            <p>
-                                <a href="intellij-idea.topic"/>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="creating_http_apis.md"/>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="creating_interactive_website.md"/>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="creating_web_socket_chat.md"/>
-                            </p>
-                        </li>
-                        <li>
+        <primary>
+            <title>Ktor Server</title>
+            <a href="server-requests-and-responses.topic">
+                Handle requests and generate responses
+            </a>
+            <a href="server-create-restful-apis.topic">Create a RESTful API</a>
+            <a href="server-create-website.topic">Create a website</a>
+            <a href="server-create-websocket-application.topic">
+                Create a WebSocket application
+            </a>
+            <a href="server-integrate-database.topic">Integrate a database</a>
+        </primary>
+        <secondary></secondary>
+        <misc>
+            <links narrow="true">
+                <group>
+                    <title>Server configuration</title>
+                    <a href="server-create-a-new-project.topic"/>
+                    <a href="server-dependencies.topic"/>
+                    <a href="server-create-and-configure.topic"/>
+                    <a href="server-configuration-code.topic"/>
+                    <a href="server-configuration-file.topic"/>
+                    <a href="server-plugins.md"/>
+                </group>
+                <group>
+                    <title>Routing</title>
+                    <a href="server-routing.md"/>
+                    <a href="server-resources.md"/>
+                    <a href="server-application-structure.md"/>
+                    <a href="server-requests.md"/>
+                    <a href="server-responses.md"/>
+                    <a href="server-static-content.md"/>
+                </group>
+                <group>
+                    <title>Plugins</title>
+                    <a href="server-serialization.md"/>
+                    <a href="server-templating.md"/>
+                    <a href="server-auth.md"/>
+                    <a href="server-sessions.md"/>
+                    <a href="server-websockets.md"/>
+                    <a href="server-server-sent-events.topic"/>
+                    <a href="server-swagger-ui.md"/> / <a href="server-openapi.md"/>
+                    <a href="server-custom-plugins.md"/>
+                </group>
+                <group>
+                    <title>Run, debug and test</title>
+                    <a href="server-run.md"/>
+                    <a href="server-auto-reload.topic"/>
+                    <a href="server-testing.md"/>
+                </group>
+                <group>
+                    <title>Deployment</title>
+                    <a href="server-fatjar.md">Creating Fat JARs</a>
+                    <a href="server-war.md"/>
+                    <a href="graalvm.md"/>
+                    <a href="docker.md"/>
+                    <a href="google-app-engine.md"/>
+                    <a href="heroku.md"/>
+                </group>
+            </links>
+            <cards>
+                <title>Ktor Client</title>
+                <a href="client-create-new-application.topic"
+                   summary="Create a client application with Ktor.">
+                    Create a client application
+                </a>
+                <a href="client-create-multiplatform-application.md"
+                   summary="Create a Kotlin Multiplatform Mobile application and learn how to make requests and receive responses with the Ktor Client.">
+                    Create a cross-platform mobile application
+                </a>
+            </cards>
+            <links narrow="true">
+                <group>
+                    <title>Client setup</title>
+                    <a href="client-create-new-application.topic"/>
+                    <a href="client-dependencies.md"/>
+                    <a href="client-create-and-configure.md"/>
+                    <a href="client-engines.md"/>
+                    <a href="client-plugins.md"/>
+                </group>
+                <group>
+                    <title>Requests</title>
+                    <a href="client-requests.md"/>
+                    <a href="client-resources.md"/>
+                    <a href="client-default-request.md"/>
+                    <a href="client-request-retry.md"/>
+                </group>
+                <group>
+                    <title>Responses</title>
+                    <a href="client-responses.md"/>
+                    <a href="client-response-validation.md"/>
+                </group>
+                <group>
+                    <title>Plugins</title>
+                    <a href="client-auth.md"/>
+                    <a href="client-cookies.md"/>
+                    <a href="client-content-encoding.md"/>
+                    <a href="client-bom-remover.md"/>
+                    <a href="client-caching.md"/>
+                    <a href="client-websockets.topic"/>
+                    <a href="client-server-sent-events.topic"/>
+                    <a href="client-custom-plugins.md"/>
+                </group>
+                <group>
+                    <title>Testing</title>
+                    <a href="client-testing.md"/>
+                </group>
+            </links>
+            <cards>
+                <title>Integrations</title>
+                <a href="full-stack-development-with-kotlin-multiplatform.topic"/>
+                <a href="tutorial-first-steps-with-kotlin-rpc.topic"/>
+            </cards>
+        </misc>
 
-                        </li>
-                    </list>
-                </li>
-
-                <li>
-                    <p>
-                        <b>
-                            Configuring a server
-                        </b>
-                    </p>
-                    <list style="none">
-                        <li>
-                            <a href="server-dependencies.topic"/>
-                        </li>
-                        <li>
-                            <a href="create_server.topic"/>
-                        </li>
-                        <li>
-                            <a href="Configuration-code.topic">Configuring a server in code</a> or in a <a href="Configuration-file.topic">file</a>
-                        </li>
-                        <li>
-                            <a href="Plugins.md"/>
-                        </li>
-                        <li>
-
-                        </li>
-                    </list>
-                </li>
-
-                <li>
-                    <p>
-                        <b>
-                            Routing
-                        </b>
-                    </p>
-                    <list style="none">
-                        <li>
-                            <a href="Routing_in_Ktor.md"/>
-                        </li>
-                        <li>
-                            <a href="type-safe-routing.md"/>
-                        </li>
-                        <li>
-                            <a href="Structuring_Applications.md"/>
-                        </li>
-                        <li>
-                            <a href="requests.md"/>
-                        </li>
-                        <li>
-                            <a href="responses.md"/>
-                        </li>
-                        <li>
-                            <a href="Serving_Static_Content.md"/>
-                        </li>
-                        <li>
-
-                        </li>
-                    </list>
-                </li>
-
-                <li>
-                    <p>
-                        <b>
-                            Plugins
-                        </b>
-                    </p>
-                    <list style="none">
-                        <li>
-                            <a href="serialization.md"/>
-                        </li>
-                        <li>
-                            <a href="Templating.md"/>
-                        </li>
-                        <li>
-                            <a href="authentication.md"/>
-                        </li>
-                        <li>
-                            <a href="sessions.md"/>
-                        </li>
-                        <li>
-                            <a href="websocket.md"/>
-                        </li>
-                        <li>
-                            <a href="swagger-ui.md"/> / <a href="openapi.md"/>
-                        </li>
-                        <li>
-                            <a href="custom_plugins.md"/>
-                        </li>
-                        <li>
-
-                        </li>
-                    </list>
-                </li>
-
-                <li>
-                    <p>
-                        <b>
-                            Running, debugging, and testing
-                        </b>
-                    </p>
-                    <list style="none">
-                        <li>
-                            <a href="running.md"/>
-                        </li>
-                        <li>
-                            <a href="Auto_reload.topic"/>
-                        </li>
-                        <li>
-                            <a href="Testing.md"/>
-                        </li>
-                        <li>
-
-                        </li>
-                    </list>
-                </li>
-
-                <li>
-                    <p>
-                        <b>
-                            Deployment
-                        </b>
-                    </p>
-                    <list style="none">
-                        <li>
-                            <a href="fatjar.md">Creating Fat JARs</a>
-                        </li>
-                        <li>
-                            <a href="war.md"/>
-                        </li>
-                        <li>
-                            <a href="Graalvm.md"/>
-                        </li>
-                        <li>
-                            <a href="docker.md"/>
-                        </li>
-                        <li>
-                            <a href="google-app-engine.md"/>
-                        </li>
-                        <li>
-                            <a href="heroku.md"/>
-                        </li>
-                        <li>
-
-                        </li>
-                    </list>
-                </li>
-            </list>
-        </tab>
-        <tab title="Ktor Client">
-            <list columns="2">
-                <li>
-                    <p>
-                        <b>
-                            Getting started
-                        </b>
-                    </p>
-                    <list style="none">
-                        <li>
-                            <p>
-                                <a href="getting_started_ktor_client.topic"/>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="getting_started_ktor_client_chat.md"/>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <a href="getting_started_ktor_client_multiplatform_mobile.md"/>
-                            </p>
-                        </li>
-                        <li>
-
-                        </li>
-                    </list>
-                </li>
-
-                <li>
-                    <p>
-                        <b>
-                            Setting up the client
-                        </b>
-                    </p>
-                    <list style="none">
-                        <li>
-                            <a href="client-dependencies.md"/>
-                        </li>
-                        <li>
-                            <a href="create-client.md"/>
-                        </li>
-                        <li>
-                            <a href="http-client_engines.md"/>
-                        </li>
-                        <li>
-                            <a href="http-client_plugins.md"/>
-                        </li>
-                        <li>
-
-                        </li>
-                    </list>
-                </li>
-
-                <li>
-                    <p>
-                        <b>
-                            Requests
-                        </b>
-                    </p>
-                    <list style="none">
-                        <li>
-                            <a href="request.md"/>
-                        </li>
-                        <li>
-                            <a href="type-safe-request.md"/>
-                        </li>
-                        <li>
-                            <a href="default-request.md"/>
-                        </li>
-                        <li>
-                            <a href="client_retry.md"/>
-                        </li>
-                        <li>
-
-                        </li>
-                    </list>
-                </li>
-
-                <li>
-                    <p>
-                        <b>
-                            Responses
-                        </b>
-                    </p>
-                    <list style="none">
-                        <li>
-                            <a href="response.md"/>
-                        </li>
-                        <li>
-                            <a href="response-validation.md"/>
-                        </li>
-                        <li>
-
-                        </li>
-                    </list>
-                </li>
-
-                <li>
-                    <p>
-                        <b>
-                            Plugins
-                        </b>
-                    </p>
-                    <list style="none">
-                        <li>
-                            <a href="serialization-client.md"/>
-                        </li>
-                        <li>
-                            <a href="auth.md"/>
-                        </li>
-                        <li>
-                            <a href="http-cookies.md"/>
-                        </li>
-                        <li>
-                            <a href="content-encoding.md"/>
-                        </li>
-                        <li>
-                            <a href="client-caching.md"/>
-                        </li>
-                        <li>
-                            <a href="websocket_client.md"/>
-                        </li>
-                        <li>
-                            <a href="client-custom-plugins.md"/>
-                        </li>
-                        <li>
-
-                        </li>
-                    </list>
-                </li>
-
-                <li>
-                    <p>
-                        <b>
-                            Testing
-                        </b>
-                    </p>
-                    <list style="none">
-                        <li>
-                            <a href="http-client_testing.md"/>
-                        </li>
-                        <li>
-
-                        </li>
-                    </list>
-                </li>
-            </list>
-        </tab>
-    </tabs>
-
-    <p>
-        <b><a href="https://api.ktor.io/">API Docs</a></b>
-    </p>
+    </section-starting-page>
 </topic>

@@ -8,7 +8,10 @@ import kotlin.test.*
 
 class ApplicationTest {
     @Test
-    fun testFormAuth() = testApplication {
+    fun testSuccessfulAuth() = testApplication {
+        application {
+            main()
+        }
         val loginResponse = client.post("/login") {
             header(HttpHeaders.ContentType, ContentType.Application.FormUrlEncoded.toString())
             setBody(listOf("username" to "jetbrains", "password" to "foobar").formUrlEncode())
@@ -17,8 +20,23 @@ class ApplicationTest {
     }
 
     @Test
-    fun testRoot() = testApplication {
-        val response = client.get("/")
+    fun testUnsuccessfulAuth() = testApplication {
+        application {
+            main()
+        }
+        val loginResponse = client.post("/login") {
+            header(HttpHeaders.ContentType, ContentType.Application.FormUrlEncoded.toString())
+            setBody(listOf("username" to "jetbrains", "password" to "incorrect_pass").formUrlEncode())
+        }
+        assertEquals("Credentials are not valid", loginResponse.bodyAsText())
+    }
+
+    @Test
+    fun testForm() = testApplication {
+        application {
+            main()
+        }
+        val response = client.get("/login")
         assertEquals(
             """
 <!DOCTYPE html>

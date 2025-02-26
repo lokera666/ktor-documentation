@@ -11,8 +11,12 @@
 </p>
 </tldr>
 
-<link-summary>
+<web-summary>
 This tutorial shows how to prepare and deploy a Ktor project to a Google App Engine standard environment.
+</web-summary>
+
+<link-summary>
+Learn how to deploy your project to a Google App Engine standard environment.
 </link-summary>
 
 In this tutorial, we'll show you how to prepare and deploy a Ktor project to a Google App Engine standard environment. This tutorial uses the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main) sample project as a starting project.
@@ -32,11 +36,11 @@ Before starting this tutorial, you need to perform the steps below:
 To open a sample application, follow the steps below:
 1. Clone a Ktor documentation repository and open the [codeSnippets](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets) project.
 2. Open the [engine-main](https://github.com/ktorio/ktor-documentation/tree/%ktor_version%/codeSnippets/snippets/engine-main) module.
-   > Note that Ktor provides two approaches to [create and configure a server](create_server.topic): in code or by using a configuration file. In this tutorial, deploying process is the same for both approaches.
+   > Note that Ktor provides two approaches to [create and configure a server](server-create-and-configure.topic): in code or by using a configuration file. In this tutorial, deploying process is the same for both approaches.
 
 ## Prepare an application {id="prepare-app"}
 ### Step 1: Apply the Shadow plugin {id="configure-shadow-plugin"}
-This tutorial shows how to deploy the application to Google App Engine using a [fat JAR](fatjar.md). To generate fat JARs, you need to apply the Shadow plugin. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
+This tutorial shows how to deploy the application to Google App Engine using a [fat JAR](server-fatjar.md). To generate fat JARs, you need to apply the Shadow plugin. Open the `build.gradle.kts` file and add the plugin to the `plugins` block:
 ```kotlin
 ```
 {src="snippets/google-appengine-standard/build.gradle.kts" include-lines="7,11-12"}
@@ -63,14 +67,15 @@ The [Google App Engine Gradle plugin](https://github.com/GoogleCloudPlatform/app
 
 ### Step 3: Configure App Engine settings {id="configure-app-engine-settings"}
 You configure App Engine settings for your application in the [app.yaml](https://cloud.google.com/appengine/docs/standard/python/config/appref) file:
-1. Create the `appengine` directory inside `src/main/appengine`.
-2. Inside this directory, create the `app.yaml` file and add the following content:
+1. Create the `appengine` directory inside `src/main`.
+2. Inside this directory, create the `app.yaml` file and add the following content (replace `google-appengine-standard` with your project's name):
    ```yaml
    ```
    {src="snippets/google-appengine-standard/src/main/appengine/app.yaml"}
    
    The `entrypoint` option contains a command used to run a fat JAR generated for the application.
 
+   Further documentation on supported configuration options can be found from the [Google AppEngine documentation](https://cloud.google.com/appengine/docs/standard/reference/app-yaml?tab=java).
 
 ## Deploy an application {id="deploy-app"}
 

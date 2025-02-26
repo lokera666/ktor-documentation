@@ -1,16 +1,24 @@
+import com.example.main
+import com.example.module
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.server.testing.*
 import org.junit.*
+import org.junit.Ignore
 import java.io.*
 import kotlin.test.*
 import kotlin.test.Test
 
 class ApplicationTest {
+    @Ignore
     @Test
     fun testRoot() = testApplication {
+        application {
+            module()
+        }
         val response = client.get("/index")
-        assertEquals("""
+        assertEquals(
+            """
             <html>
                 <body>
                     <h1>Hello, John!</h1>

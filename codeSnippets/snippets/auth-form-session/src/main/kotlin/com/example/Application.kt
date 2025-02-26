@@ -7,8 +7,10 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
 import kotlinx.html.*
+import kotlinx.serialization.Serializable
 
-data class UserSession(val name: String, val count: Int) : Principal
+@Serializable
+data class UserSession(val name: String, val count: Int)
 
 fun Application.main() {
     install(Sessions) {

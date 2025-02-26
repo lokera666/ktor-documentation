@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE topic
-        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd" id="lib"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd" id="lib"
        title="Library of Includes">
 
 
     <snippet id="install_plugin">
         <p>
-            To <a href="Plugins.md" anchor="install">install</a> the <code>%plugin_name%</code> plugin to the application,
-            pass it to the <code>install</code> function in the specified <a href="Modules.md">module</a>.
+            To <a href="server-plugins.md" anchor="install">install</a> the <code>%plugin_name%</code> plugin to the application,
+            pass it to the <code>install</code> function in the specified <a href="server-modules.md">module</a>.
             The code snippets below show how to install <code>%plugin_name%</code> ...
         </p>
         <list>
@@ -23,9 +23,11 @@
         <tabs>
             <tab title="embeddedServer">
                 <code-block lang="kotlin">
+                    import io.ktor.server.engine.*
+                    import io.ktor.server.netty.*
                     import io.ktor.server.application.*
                     import %package_name%.*
-                    // ...
+
                     fun main() {
                         embeddedServer(Netty, port = 8080) {
                             install(%plugin_name%)
@@ -50,7 +52,7 @@
 
     <snippet id="install_plugin_route">
         <p>
-            The <code>%plugin_name%</code> plugin can also be <a href="Plugins.md" anchor="install-route">installed to specific routes</a>.
+            The <code>%plugin_name%</code> plugin can also be <a href="server-plugins.md" anchor="install-route">installed to specific routes</a>.
             This might be useful if you need different <code>%plugin_name%</code> configurations for different application resources.
         </p>
     </snippet>
@@ -289,31 +291,136 @@
 
     <snippet id="client_prerequisites">
         <p>
-            Before starting this tutorial:
+            Before starting this tutorial,
+            <a href="https://www.jetbrains.com/help/idea/installation-guide.html">install IntelliJ IDEA Community or
+                Ultimate</a>.
         </p>
-        <list>
-            <li>
-                <p>
-                    <a href="https://www.jetbrains.com/help/idea/installation-guide.html">Install IntelliJ IDEA Community or Ultimate</a>.
-                </p>
-            </li>
-            <li>
-                <p>
-                    Make sure the <a href="https://plugins.jetbrains.com/plugin/6954-kotlin">Kotlin</a> plugin is installed and enabled. Learn how to do this from the
-                    <a href="https://www.jetbrains.com/help/idea/managing-plugins.html#open-plugin-settings">Install plugins</a> topic.
-                </p>
-            </li>
-        </list>
     </snippet>
 
     <snippet id="native_server_supported">
         <p>
-            <b><a href="native_server.md">Native server</a> support</b>: ✅
+            <b><a href="server-native.md">Native server</a> support</b>: ✅
         </p>
     </snippet>
     <snippet id="native_server_not_supported">
         <p>
-            <b><a href="native_server.md">Native server</a> support</b>: ✖️
+            <b><a href="server-native.md">Native server</a> support</b>: ✖️
+        </p>
+    </snippet>
+
+    <snippet id="generator_project_settings_build_system">
+        <p>
+            <control>Build System</control>
+            :
+            Choose the desired <a href="server-dependencies.topic">build system</a>.
+            This can be
+            <emphasis>Gradle</emphasis>
+            with Kotlin or Groovy DSL, or
+            <emphasis>Maven</emphasis>
+            .
+        </p>
+    </snippet>
+    <snippet id="generator_project_settings_website">
+        <p>
+            <control>Website</control>
+            :
+            Specify a domain used to generate a package name.
+        </p>
+    </snippet>
+
+    <snippet id="generator_project_settings_artifact">
+        <p>
+            <control>Artifact</control>
+            :
+            This field shows a generated artifact name.
+        </p>
+    </snippet>
+
+    <snippet id="generator_project_settings_ktor_version">
+        <p>
+            <control>Ktor version</control>
+            :
+            Choose the required Ktor version.
+        </p>
+    </snippet>
+
+    <snippet id="generator_project_settings_engine">
+        <p>
+            <control>Engine</control>
+            :
+            Select an <a href="server-engines.md">engine</a> used to run a server.
+        </p>
+    </snippet>
+
+    <snippet id="generator_project_settings_config">
+        <p>
+            <control>Configuration</control>
+            :
+            Choose whether
+            to specify server parameters <a href="server-configuration-file.topic">in a YAML or HOCON file</a>, or
+            <a href="server-configuration-code.topic">in code</a>.
+        </p>
+    </snippet>
+
+    <snippet id="generator_project_settings_sample_code">
+        <p>
+            <control>Include samples</control>
+            :
+            Leave this option enabled to add sample code for plugins.
+        </p>
+    </snippet>
+
+    <snippet id="generate_project_step_1">
+        <p>
+            Navigate to the
+            <a href="https://start.ktor.io/">Ktor Project Generator</a>
+            .
+        </p>
+    </snippet>
+
+    <snippet id="generate_project_final_step">
+        <p>
+            Click the
+            <control>Download</control>
+            button to generate and download your Ktor project.
+        </p>
+    </snippet>
+    <snippet id="release_details_link">
+        <p>
+            <a href="https://github.com/ktorio/ktor/releases/tag/%version%">See changelog on
+                GitHub</a>
+        </p>
+    </snippet>
+
+    <snippet id="intellij_idea_load_gradle_changes">
+        <p>In intelliJ IDEA, click on the notification Gradle icon
+            (<img alt="intelliJ IDEA gradle icon"
+                  src="intellij_idea_gradle_icon.svg" width="16" height="26"/>)
+            on the right side of the editor to load Gradle changes.</p>
+    </snippet>
+
+    <snippet id="intellij_idea_run_test">
+        <p>In IntelliJ IDEA, click on the run button
+            (<img src="intellij_idea_gutter_icon.svg"
+                  style="inline" height="16" width="16"
+                  alt="intelliJ IDEA run icon"/>)
+            next to the test class definition to run the tests.</p>
+    </snippet>
+
+    <snippet id="intellij_idea_start_application">
+        <p>In IntelliJ IDEA, click on the run button
+            (<img src="intellij_idea_gutter_icon.svg"
+                  style="inline" height="16" width="16"
+                  alt="intelliJ IDEA run icon"/>)
+            to start the application.</p>
+    </snippet>
+
+    <snippet id="intellij_idea_restart_application">
+        <p>
+            In IntelliJ IDEA, click the rerun button (<img src="intellij_idea_rerun_icon.svg"
+                                                           style="inline" height="16" width="16"
+                                                           alt="intelliJ IDEA rerun icon"/>) to restart the
+            application.
         </p>
     </snippet>
 </topic>
